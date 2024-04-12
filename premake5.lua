@@ -1,5 +1,5 @@
 project "GLFW"
-	kind "StaticLib"
+	kind "SharedLib"
 	language "C"
 	staticruntime "off"
 	warnings "off"
@@ -77,6 +77,7 @@ project "GLFW"
 
 	filter "system:windows"
 		systemversion "latest"
+		toolset "clang"
 
 		files
 		{
@@ -96,6 +97,11 @@ project "GLFW"
 		{ 
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
+		}
+
+		links
+		{
+			"gdi32"
 		}
 
 	filter "configurations:Debug"
